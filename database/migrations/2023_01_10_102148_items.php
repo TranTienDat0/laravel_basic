@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('amount');
             $table->integer('category_id');              
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

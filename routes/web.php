@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/user', [userController::class,'index'])->name('user');
+Route::get('/newUser', [userController::class, 'create'])->name('newUser');
+Route::post('/create', [userController::class, 'createPost'])->name('create');

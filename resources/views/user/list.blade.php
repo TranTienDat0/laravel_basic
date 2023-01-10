@@ -1,29 +1,34 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+  table th{
+    text-align: center;
+  }
+</style>
+<div class="col-md-12">
+  <a href="{{ asset('newUser') }}" class="btn btn-success float-right m-2">Add User</a>
+</div>
 <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">STT</th>
+        <th scope="col">Địa chỉ email</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Địa chỉ</th>
+        <th scope="col">Số điện thoại</th>
       </tr>
     </thead>
     <tbody>
+      @foreach ($data as $item)
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td scope="row">{{ $item->id }}</td>
+        <td>{{ $item->mail_address }}</td>
+        <td>{{ $item->nam }}</td>
+        <td>{{ $item->address }}</td>
+        <td>{{ $item->phone }}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      @endforeach     
     </tbody>
   </table>
+<div class="col-md-12">
+    {{ $data->links('pagination::bootstrap-4') }}
+</div>
